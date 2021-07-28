@@ -15,5 +15,10 @@ alias remove='rm -rf'
 
 ##### GIT
 function commit () { git add "$1"; git commit -m "$2"; }
-function alias_commit () { cd;cd .oh-my-zsh/custom; git commit -am "$1"; }
+function alias_commit () {
+  cd;
+  cd .oh-my-zsh/custom;
+  git commit -am "$1";
+  git push origin master;
+}
 function makedir () { mkdir "$@"; }
