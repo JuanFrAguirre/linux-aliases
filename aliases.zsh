@@ -5,6 +5,8 @@ alias reset='cd; source .zshrc; clear'
 alias sudoInstall='sudo dpkg -i'
 alias tarxz='sudo tar -xf'
 alias remove='rm -rf'
+alias off='shutdown -h now'
+alias reboot='shutdown -r now'
 
 ##### PROGRAMS
 alias vsc='code .; exit'
