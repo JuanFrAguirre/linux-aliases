@@ -20,5 +20,3 @@ alias play='projects;cd playground'
 function commit () { git add "$1"; git commit -m "$2"; }
 function commit.alias () { cd;cd .oh-my-zsh/custom;git commit -am "$1";git push origin master; }
 function makedir () { mkdir "$@"; }
-function speak () { echo "$1"; }
-function speak.asd () { echo "$1"; }
