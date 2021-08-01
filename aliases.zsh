@@ -26,8 +26,8 @@ alias shortcuts='short'
 function add(){git add $@;}
 function commit(){git commit -m $1;}
 function commit.add(){git add $1;git commit -m $2;}
-function push(){git push origin master;}
-function push.notmaster(){git push origin $1;}
+function push(){git push -u origin master;}
+function push.notmaster(){git push -u origin $1;}
 function commit.alias(){cd;cd .oh-my-zsh/custom;git commit -am $1;git push origin master;}
 
 ##### OTHER STUFF
