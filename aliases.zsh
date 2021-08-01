@@ -21,6 +21,7 @@ alias projects='cd; cd projects'
 alias play='projects;cd playground'
 alias short='cd; cd .oh-my-zsh/custom; nano aliases.zsh'
 alias shortcuts='short'
+alias hugo='projects; cd hugo'
 
 ##### GIT
 function add(){git add $@;}
