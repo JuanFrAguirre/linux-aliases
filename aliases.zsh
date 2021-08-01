@@ -33,3 +33,23 @@ function commit.alias(){cd;cd .oh-my-zsh/custom;git commit -am $1;git push origi
 
 ##### OTHER STUFF
 function testt(){echo $1;}
+
+
+##### General info for new installs
+#Themes
+# Applications --> Dracula
+# Icons --> Sweet-Purple
+# Shell --> Flat-Remix-Miami-Dark-fullPanel
+#
+#Shell
+# oh-my-zsh under zsh with power10k customization
+#
+#Fonts
+# CaskaydiaCoveNerdFont (for ligatures)
+#
+#Panel/Dash
+# DashToPanel extension
+#
+#
+#
+
