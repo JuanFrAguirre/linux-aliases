@@ -7,6 +7,7 @@ alias tarxz='sudo tar -xf'
 alias remove='rm -rf'
 alias off='shutdown -h now'
 alias reboot='shutdown -r now'
+alias repairApt='sudo apt --fix-broken install'
 
 ##### PROGRAMS
 alias vsc='code .; exit'
