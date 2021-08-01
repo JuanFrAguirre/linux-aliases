@@ -25,7 +25,7 @@ alias hugo='projects; cd hugo'
 
 ##### GIT
 function add(){git add $@;}
-function commit(){git commit -m $1;}
+function commit(){git commit -am $1;}
 function commit.add(){git add $1;git commit -m $2;}
 function push(){git push -u origin master;}
 function push.notmaster(){git push -u origin $1;}
