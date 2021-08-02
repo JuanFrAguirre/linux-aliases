@@ -32,6 +32,7 @@ function push.notmaster(){git push -u origin $1;}
 function commit.alias(){cd;cd .oh-my-zsh/custom;git commit -am $1;git push origin master;}
 
 ##### OTHER STUFF
+alias gnomeTweaks='sudo apt install gnome-tweaks'
 function testt(){echo $1;}
 
 
