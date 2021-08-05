@@ -33,6 +33,10 @@ function commit.alias(){cd;cd .oh-my-zsh/custom;git commit -am $1;git push origi
 
 ##### OTHER STUFF
 alias gnomeTweaks='sudo apt install gnome-tweaks'
+alias install.nvm='curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
+#next two lines are nvm manual config for the .somethingrc (eg: .zshrc)
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 function testt(){echo $1;}
 
 
