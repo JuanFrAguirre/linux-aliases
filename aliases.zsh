@@ -6,8 +6,8 @@ alias sudoInstall='sudo dpkg -i'
 alias tarxz='sudo tar -xf'
 alias remove='rm -rf'
 alias delete='remove'
-alias off='shutdown -h now'
-alias reboot='shutdown -r now'
+alias off='systemctl poweroff -i'
+alias reboot='systemctl reboot -i'
 alias repairApt='sudo apt --fix-broken install'
 
 ##### PROGRAMS
@@ -22,6 +22,7 @@ alias play='projects;cd playground'
 alias short='cd; cd .oh-my-zsh/custom; nano aliases.zsh'
 alias shortcuts='short'
 alias hugo='projects; cd hugo'
+alias zshrc='cd; nano .zshrc'
 
 ##### GIT
 function add(){git add $@;}
@@ -29,10 +30,13 @@ function commit(){git commit -am $1;}
 function commit.add(){git add $1;git commit -m $2;}
 function push(){git push -u origin master;}
 function push.notmaster(){git push -u origin $1;}
-function commit.alias(){cd;cd .oh-my-zsh/custom;git commit -am $1;git push origin master;}
+function commit.alias(){cd;cd .oh-my-zsh/custom;git add aliases.zsh;git commit -m $1;git push origin master;}
 
 ##### OTHER STUFF
 alias gnomeTweaks='sudo apt install gnome-tweaks'
+alias autoSuggestions='git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
+alias syntaxHighlighting='git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
+#after the previous two, add zsh-autosuggestions and zsh-syntax-highlighting to plugins=(git) in .zshrc
 alias install.nvm='curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
 #next two lines are nvm manual config for the .somethingrc (eg: .zshrc)
 #export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
