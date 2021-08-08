@@ -22,9 +22,12 @@ alias play='projects;cd playground'
 alias short='cd; cd .oh-my-zsh/custom; nano aliases.zsh'
 alias shortcuts='short'
 alias hugo='projects; cd hugo'
+alias hugo.latest='hugo; cd JM-Cleaner-5.0'
 alias zshrc='cd; nano .zshrc'
 
 ##### GIT
+alias git.name='git config --global user.name'
+alias git.email='git config --global user.email'
 function add(){git add $@;}
 function commit(){git commit -am $1;}
 function commit.add(){git add $1;git commit -m $2;}
