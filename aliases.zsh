@@ -29,6 +29,7 @@ alias projects='cd; cd projects'
 alias play='projects;cd playground'
 alias short='cd; cd .oh-my-zsh/custom; nano aliases.zsh'
 alias shortcuts='short'
+alias naranja='projects; cd naranja'
 alias hugo='projects; cd hugo'
 alias hugo.latest='hugo; cd JM-Cleaner-5.0'
 alias zshrc='cd; nano .zshrc'
@@ -42,10 +43,7 @@ function commit.add(){git add $1;git commit -m $2;}
 function push(){git push -u origin master;}
 function push.notmaster(){git push -u origin $1;}
 function commit.alias(){cd;cd .oh-my-zsh/custom;git add aliases.zsh;git commit -m $1;git push origin master;}
-function git.email.set(){git config user.email $1}
-function git.email.setG(){git config --global user.email $1}
-function git.email.naranja(){git config --global user.email juan.aguirre@naranja.com;}
-function git.email.juan(){git config --global user.email jf_aguirre@hotmail.com;}
+function git.email.local(){git config user.email $1}
 
 ##### OTHER STUFF
 function testt(){echo $1;}
