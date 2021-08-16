@@ -3,7 +3,6 @@ alias open='xdg-open .'
 alias opex='open;exit'
 alias reset='cd; source .zshrc; clear'
 alias sudoInstall='sudo dpkg -i'
-alias tarxz='sudo tar -xf'
 alias remove='rm -rf'
 alias delete='remove'
 alias off='systemctl poweroff -i'
@@ -11,10 +10,17 @@ alias reboot='systemctl reboot -i'
 alias repairApt='sudo apt --fix-broken install'
 alias tar.gz='tar -xvzf '
 alias tar.bz2='tar -xvjf '
+alias tar.xz='sudo tar -xf'
 
 ##### PROGRAMS
 alias vsc='code .; exit'
 alias txt='sudo gedit'
+alias install.nvm='curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
+#next two lines are nvm manual config for the .somethingrc (eg: .zshrc)
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#after the previous two, add zsh-autosuggestions and zsh-syntax-highlighting to plugins=(git) in .zshrc
+alias install.firebase='curl -sL https://firebase.tools | bash'
 
 ##### FILES/FOLDERS
 alias desktop='cd; cd Desktop'
@@ -42,20 +48,15 @@ function git.email.naranja(){git config --global user.email juan.aguirre@naranja
 function git.email.juan(){git config --global user.email jf_aguirre@hotmail.com;}
 
 ##### OTHER STUFF
+function testt(){echo $1;}
+function prettierconfig(){echo '{}' > .prettierrc}
+function prettierconfig.full(){echo '{\n\t"singleQuote": true,\n\t"trailingComma": "all",\n\t"semi": false,\n\t"tabWidth": 2,\n\t"arrowParens": "always"\n}' > .prettierrc}
 alias gnomeTweaks='sudo apt install gnome-tweaks'
 alias autoSuggestions='git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
 alias syntaxHighlighting='git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
-#after the previous two, add zsh-autosuggestions and zsh-syntax-highlighting to plugins=(git) in .zshrc
-alias install.firebase='curl -sL https://firebase.tools | bash'
-alias install.nvm='curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
-#next two lines are nvm manual config for the .somethingrc (eg: .zshrc)
-#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-function testt(){echo $1;}
 alias reactBootstrap='npm install react-bootstrap bootstrap'
 alias nodeSass='npm install node-sass@4.14.1'
 alias ssh.gen='ssh-keygen -t rsa -b 4096 -C'
-
 ##### General info for new installs
 #Themes
 # Applications --> Dracula / WhiteSur-dark
