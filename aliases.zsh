@@ -9,6 +9,8 @@ alias delete='remove'
 alias off='systemctl poweroff -i'
 alias reboot='systemctl reboot -i'
 alias repairApt='sudo apt --fix-broken install'
+alias tar.gz='tar -xvzf '
+alias tar.bz2='tar -xvjf '
 
 ##### PROGRAMS
 alias vsc='code .; exit'
@@ -34,6 +36,10 @@ function commit.add(){git add $1;git commit -m $2;}
 function push(){git push -u origin master;}
 function push.notmaster(){git push -u origin $1;}
 function commit.alias(){cd;cd .oh-my-zsh/custom;git add aliases.zsh;git commit -m $1;git push origin master;}
+function git.email.set(){git config user.email $1}
+function git.email.setG(){git config --global user.email $1}
+function git.email.naranja(){git config --global user.email juan.aguirre@naranja.com;}
+function git.email.juan(){git config --global user.email jf_aguirre@hotmail.com;}
 
 ##### OTHER STUFF
 alias gnomeTweaks='sudo apt install gnome-tweaks'
@@ -46,13 +52,16 @@ alias install.nvm='curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0
 #export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 function testt(){echo $1;}
-
+alias reactBootstrap='npm install react-bootstrap bootstrap'
+alias nodeSass='npm install node-sass@4.14.1'
+alias ssh.gen='ssh-keygen -t rsa -b 4096 -C'
 
 ##### General info for new installs
 #Themes
-# Applications --> Dracula
-# Icons --> Sweet-Purple
-# Shell --> Flat-Remix-Miami-Dark-fullPanel
+# Applications --> Dracula / WhiteSur-dark
+# Cursors --> McMojave-cursors
+# Icons --> Sweet-Purple / WhiteSur-dark
+# Shell --> Flat-Remix-Miami-Dark-fullPanel / WhiteSur-dark
 #
 #Shell
 # oh-my-zsh under zsh with power10k customization
