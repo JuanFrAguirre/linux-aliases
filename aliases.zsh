@@ -93,7 +93,7 @@ function react(){ npx create-react-app $1 && cd $1 && remove ./src && mkdir src 
 function react.comp(){ createFile "./src/$1.js" "const $2 = () => {\n\treturn (\n\t\t<>\n\t\t\t<h1>$2 works!</h1>\n\t\t</>\n\t)\n}\n\nexport default $2" }
 
 # Clean create-react-app with tailwind integration
-function react.tailwind(){ npx create-react-app $1 && clear -x && cd $1 && remove ./src && mkdir src && indexjs && appjs && replace "<h1>Welcome to React.jf \!<\/h1>" "<div className='flex justify-center items-center min-h-screen font-extrabold text-2xl bg-gray-700 text-white'>\n\t\t\t\t<h1>Welcome to React.jf \!<\/h1>\n\t\t\t<\/div>" ./src/App.js && indexcss && prettierconfig.full && clear -x && install.tailwind 'new' && clear -x && say 'All ready!\n'$(say.cyan)'Tailwind' $(say.white)'was added succesfully!\nRun' $(say.cyan)vsc $(say.white)to start coding!; }
+function react.tailwind(){ npx create-react-app $1 && clear -x && cd $1 && remove ./src && mkdir src && indexjs && appjs && replace "<h1>Welcome to React.jf \!<\/h1>" "<div className='flex justify-center items-center flex-col min-h-screen font-extrabold text-2xl bg-gray-700 text-white'>\n\t\t\t\t<h1>Welcome to React.jf \!<\/h1>\n\t\t\t<\/div>" ./src/App.js && indexcss && prettierconfig.full && clear -x && install.tailwind 'new' && clear -x && say 'All ready!\n'$(say.cyan)'Tailwind' $(say.white)'was added succesfully!\nRun' $(say.cyan)vsc $(say.white)to start coding!; }
 
 # Basic prettier config
 function prettierconfig(){ createFile '.prettierrc' '{}'; }
