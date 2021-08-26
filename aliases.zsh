@@ -28,6 +28,7 @@ function createFile(){ echo $2 > $1 }
 function findSth(){ if grep -Fq $1 $2; then echo true; else echo false;fi; }
 function cdInto(){ if [ $2 ];then cd $1/$2;else cd $1;fi; }
 
+# ------------------------------------------------------------------------------
 
 ##### PROGRAMS
 alias txt='sudo gedit'
@@ -37,6 +38,7 @@ alias install.nvm='curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 #after the previous two, add zsh-autosuggestions and zsh-syntax-highlighting to plugins=(git) in .zshrc
 
+# ------------------------------------------------------------------------------
 
 ##### FILES/FOLDERS
 alias home='cd'
@@ -52,6 +54,7 @@ alias hugo='projects; cdInto hugo'
 alias hugo.latest='hugo; cd JM-Cleaner-5.0/'
 alias zshrc='cd; nano .zshrc'
 
+# ------------------------------------------------------------------------------
 
 ##### GIT
 alias git.name='git config --global user.name'
@@ -64,12 +67,14 @@ function push.notmaster(){ git push -u origin $1; }
 function commit.alias(){ cd;cd .oh-my-zsh/custom;git add aliases.zsh functions.zsh;git commit -m $1;git push origin master; }
 function git.email.local(){ git config user.email $1; }
 
+# ------------------------------------------------------------------------------
 
 ##### VARIABLES
 vReactBootstrap="react-bootstrap bootstrap"
 vNodeSass="node-sass@4.14.1"
 vReactRouter="react-router-dom"
 
+# ------------------------------------------------------------------------------
 
 ##### CODING
 alias vsc='code .; exit'
@@ -77,30 +82,53 @@ alias install.firebase='curl -sL https://firebase.tools | bash'
 alias prettierrc='prettierconfig'
 alias prettierrc.full='prettierconfig.full'
 alias indexjs='createFile "src/index.js" "import React from \"react\"\nimport ReactDOM from \"react-dom\"\nimport \"./index.css\"\nimport App from \"./App\"\n\nReactDOM.render(\n\t<React.StrictMode>\n\t\t<App />\n\t</React.StrictMode>,\n\tdocument.getElementById(\"root\")\n)"'
-alias appjs='createFile "src/App.js" "const App = () => {\n\treturn (\n\t\t<>\n\t\t\t<h1>Welcome to React!</h1>\n\t\t</>\n\t)\n}\n\nexport default App"'
+alias appjs='createFile "src/App.js" "const App = () => {\n\treturn (\n\t\t<>\n\t\t\t<h1>Welcome to React.jf !</h1>\n\t\t</>\n\t)\n}\n\nexport default App"'
 alias indexcss='createFile "src/index.css" ""'
 alias browsernone='replace "react-scripts start" "BROWSER=none react-scripts start" package.json'
+
+# Clean create-react-app
 function react(){ npx create-react-app $1 && cd $1 && remove ./src && mkdir src && indexjs && appjs && indexcss && prettierconfig.full && browsernone && clear -x && say 'All ready!\nRun '$(say.cyan)vsc $(say.white)to start coding!; }
+
+# Create a component cli command
 function react.comp(){ createFile "./src/$1.js" "const $2 = () => {\n\treturn (\n\t\t<>\n\t\t\t<h1>$2 works!</h1>\n\t\t</>\n\t)\n}\n\nexport default $2" }
-function react.tailwind(){ npx create-react-app $1 && clear -x && cd $1 && remove ./src && mkdir src && indexjs && appjs && indexcss && prettierconfig.full && clear -x && install.tailwind 'new' && clear -x && say 'All ready!\n'$(say.cyan)'Tailwind' $(say.white)'was added succesfully!\nRun' $(say.cyan)vsc $(say.white)to start coding!; }
+
+# Clean create-react-app with tailwind integration
+function react.tailwind(){ npx create-react-app $1 && clear -x && cd $1 && remove ./src && mkdir src && indexjs && appjs && replace "<h1>Welcome to React.jf \!<\/h1>" "<div className='flex justify-center items-center min-h-screen font-extrabold text-2xl bg-gray-700 text-white'>\n\t\t\t\t<h1>Welcome to React.jf \!<\/h1>\n\t\t\t<\/div>" ./src/App.js && indexcss && prettierconfig.full && clear -x && install.tailwind 'new' && clear -x && say 'All ready!\n'$(say.cyan)'Tailwind' $(say.white)'was added succesfully!\nRun' $(say.cyan)vsc $(say.white)to start coding!; }
+
+# Basic prettier config
 function prettierconfig(){ createFile '.prettierrc' '{}'; }
+
+# My personal prettier config for js
 function prettierconfig.full(){ createFile '.prettierrc' '{\n\t"singleQuote": true,\n\t"trailingComma": "all",\n\t"semi": false,\n\t"tabWidth": 2,\n\t"arrowParens": "always"\n}'; }
-function pkg(){ var1=$1; var2=$2; if [ $var2 ] && [ $var2 = 'npm' ];then for x in $var1;do echo npm i $x;done;else for x in $var1;do echo yarn add $x;done;fi; }
+
+# Bootstrap integration for react
 function reactBootstrap(){ if [ $1 ];then npm i $vReactBootstrap;else yarn add $vReactBootstrap;fi; }
+
+# React router integration
 function reactRouter(){ if [ $1 ];then npm i $vReactRouter;else yarn add $vReactRouter;fi; }
+
+# NodeSass integration
 function nodeSass(){ if [ $1 ];then npm i $vNodeSass;else yarn add $vNodeSass;fi; }
+
+# Changing react-scripts to craco for Tailwing integration
 function craco.replace(){ if [ $(findSth 'BROWSER=none' package.json) = true ];then replace 'react-scripts start' 'craco start' package.json;else replace 'react-scripts start' 'BROWSER=none craco start' package.json ;fi;replace 'react-scripts build' 'craco build' package.json; replace 'react-scripts test' 'craco test' package.json; }
+
+# Tailwind integration for react
 function install.tailwind(){ yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 && yarn add @craco/craco && craco.replace && createFile 'craco.config.js' 'module.exports={style:{postcss:{plugins:[require("tailwindcss"),require("autoprefixer")]}}}' && npx tailwindcss-cli@latest init && replace 'purge: \[\],' 'purge: \["\.\/src\/\*\*\/\*\.\{js,jsx,ts,tsx\}", "\.\/public\/index.html"\],' 'tailwind.config.js' && delete ./src/index.css && createFile  './src/index.css' '@tailwind base;\n@tailwind components;\n@tailwind utilities;'; if [ $1 ] && [ $1 = 'new' ];then;else clear -x && say.cyan 'Tailwind'$(say.white) 'was added succesfully!';fi; }
 
+# ------------------------------------------------------------------------------
 
 ##### OTHER STUFF
 function testt(){ echo $1; }
+
 function checkEquality() { [[ "$1" =~ "$2" ]] && say "They're equal" || say "They're not equal"; }
+
 alias gnomeTweaks='sudo apt install gnome-tweaks'
 alias autoSuggestions='git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
 alias syntaxHighlighting='git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
 alias ssh.gen='ssh-keygen -t rsa -b 4096 -C'
 
+# ------------------------------------------------------------------------------
 
 ##### General info for new installs
 #Themes

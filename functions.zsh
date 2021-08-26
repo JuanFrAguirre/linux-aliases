@@ -1,5 +1,5 @@
 function install.reactRedux(){
-  mkdir src; mkdir src/redux && mkdir src/redux/action-creators && mkdir src/redux/reducers;
+  mkdir src/redux && mkdir src/redux/action-creators && mkdir src/redux/reducers;
   createFile "src/redux/action-creators/index.js" "export const action1 = (param) => {
   return (dispatch) => {
     dispatch({
