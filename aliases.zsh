@@ -89,8 +89,8 @@ alias browsernone='replace "react-scripts start" "BROWSER=none react-scripts sta
 # Clean create-react-app
 function react(){ npx create-react-app $1 && cd $1 && remove ./src && mkdir src && indexjs && appjs && indexcss && prettierconfig.full && browsernone && clear -x && say 'All ready!\nRun '$(say.cyan)vsc $(say.white)to start coding!; }
 
-# Create a component cli command
-function react.comp(){ createFile "./src/$1.js" "const $2 = () => {\n\treturn (\n\t\t<>\n\t\t\t<h1>$2 works!</h1>\n\t\t</>\n\t)\n}\n\nexport default $2" }
+# Create-a-component cli command
+function react.comp(){ createFile "./src/components/$1.js" "const $1 = () => {\n\treturn (\n\t\t<>\n\t\t\t<h1>$1 works!</h1>\n\t\t</>\n\t)\n}\n\nexport default $1" }
 
 # Clean create-react-app with tailwind integration
 function react.tailwind(){ npx create-react-app $1 && clear -x && cd $1 && remove ./src && mkdir src && indexjs && appjs && replace "<h1>Welcome to React.jf \!<\/h1>" "<div className='flex justify-center items-center flex-col min-h-screen bg-gray-700 text-white'>\n\t\t\t\t<h1 className='font-extrabold text-2xl'>Welcome to React.jf \!<\/h1>\n\t\t\t<\/div>" ./src/App.js && indexcss && prettierconfig.full && clear -x && install.tailwind 'new' && clear -x && say 'All ready!\n'$(say.cyan)'Tailwind' $(say.white)'was added succesfully!\nRun' $(say.cyan)vsc $(say.white)to start coding!; }
