@@ -47,7 +47,7 @@ alias downloads='cd; cdInto Downloads'
 alias projects='cd; cdInto projects'
 alias play='projects;cdInto playground'
 alias short='cd; cd .oh-my-zsh/custom; nano aliases.zsh'
-alias shortTxt='cd; cd .oh-my-zsh/custom/; gedit aliases.zsh'
+alias shortTxt='cd; cd .oh-my-zsh/custom/;open -a TextEdit aliases.zsh; gedit aliases.zsh'
 alias shortcuts='short'
 alias naranja='projects; cdInto naranja'
 alias hugo='projects; cdInto hugo'
@@ -82,12 +82,13 @@ alias install.firebase='curl -sL https://firebase.tools | bash'
 alias prettierrc='prettierconfig'
 alias prettierrc.full='prettierconfig.full'
 alias indexjs='createFile "src/index.js" "import React from \"react\"\nimport ReactDOM from \"react-dom\"\nimport \"./index.css\"\nimport App from \"./App\"\n\nReactDOM.render(\n\t<React.StrictMode>\n\t\t<App />\n\t</React.StrictMode>,\n\tdocument.getElementById(\"root\")\n)"'
+alias jsconfig='createFile "jsconfig.json" "{\n\tcompilerOptions: {\n\t\t"baseUrl": "src"\n\t},\n\t"include": ["src"]\n}" '
 alias appjs='createFile "src/App.js" "const App = () => {\n\treturn (\n\t\t<>\n\t\t\t<h1>Welcome to React.jf !</h1>\n\t\t</>\n\t)\n}\n\nexport default App"'
 alias indexcss='createFile "src/index.css" ""'
 alias browsernone='replace "react-scripts start" "BROWSER=none react-scripts start" package.json'
 
 # Clean create-react-app
-function react(){ npx create-react-app $1 && cd $1 && remove ./src && mkdir src && indexjs && appjs && indexcss && prettierconfig.full && browsernone && clear -x && say 'All ready!\nRun '$(say.cyan)vsc $(say.white)to start coding!; }
+function react(){ npx create-react-app $1 && cd $1 && remove ./src && mkdir src && indexjs && appjs && indexcss && prettierconfig.full && browsernone && jsconfig && clear -x && say 'All ready!\nRun '$(say.cyan)vsc $(say.white)to start coding!; }
 
 # Create-a-component cli command
 function react.comp(){ mkdir -p src/components; createFile "./src/components/$1.js" "const $1 = () => {\n\treturn (\n\t\t<>\n\t\t\t<h1>$1 works!</h1>\n\t\t</>\n\t)\n}\n\nexport default $1" }
