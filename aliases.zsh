@@ -32,7 +32,8 @@ function cdInto(){ if [ $2 ];then cd $1/$2;else cd $1;fi; }
 
 ##### PROGRAMS
 alias txt='sudo gedit'
-alias mysqllog='mysql -u root -p'
+alias mysqllog='mysqllogin'
+alias mysqllogin='mysql -u root -p'
 alias install.nvm='curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
 #next two lines are nvm manual config for the .somethingrc (eg: .zshrc)
 #export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
