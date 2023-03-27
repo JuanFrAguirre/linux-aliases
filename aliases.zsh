@@ -56,6 +56,8 @@ alias hugo='projects; cdInto hugo'
 alias hugo.latest='hugo; cd JM-Cleaner-5.0/'
 alias blend='projects; cdInto bl3nd_labs'
 alias bl3nd='blend'
+alias foxitw='blend; cdInto Foxit.Aec.WebFrontend'
+alias foxitm='blend; cdInto Foxit.Aec.Mobile'
 alias zshrc='cd; nano .zshrc'
 
 # ------------------------------------------------------------------------------
