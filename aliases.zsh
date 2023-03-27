@@ -54,6 +54,8 @@ alias shortcuts='short'
 alias naranja='projects; cdInto naranja'
 alias hugo='projects; cdInto hugo'
 alias hugo.latest='hugo; cd JM-Cleaner-5.0/'
+alias blend='projects; cdInto bl3nd_labs'
+alias bl3nd='blend'
 alias zshrc='cd; nano .zshrc'
 
 # ------------------------------------------------------------------------------
