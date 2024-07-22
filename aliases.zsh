@@ -106,7 +106,7 @@ function react.tailwind(){ npx create-react-app $1 && clear -x && cd $1 && remov
 function prettierconfig(){ createFile '.prettierrc' '{}'; }
 
 # My personal prettier config for js
-function prettierconfig.full(){ createFile '.prettierrc' '{\n\t"singleQuote": true,\n\t"trailingComma": "all",\n\t"semi": false,\n\t"tabWidth": 2,\n\t"arrowParens": "always"\n}'; }
+function prettierconfig.full(){ createFile '.prettierrc' '{\n\t"singleQuote": true,\n\t"trailingComma": "all",\n\t"semi": true,\n\t"tabWidth": 2,\n\t"arrowParens": "always"\n}'; }
 
 # Bootstrap integration for react
 function reactBootstrap(){ if [ $1 ];then npm i $vReactBootstrap;else yarn add $vReactBootstrap;fi; }
