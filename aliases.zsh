@@ -58,6 +58,8 @@ alias blend='projects; cdInto bl3nd_labs;'
 alias bl3nd='blend;'
 alias foxitw='blend; cdInto Foxit.Aec.WebFrontend;'
 alias foxitm='blend; cdInto Foxit.Aec.Mobile;'
+alias hfc='projects; cdInto HFC;'
+alias rh='hfc; cdInto RH;'
 alias zshrc='cd; nano .zshrc'
 
 # ------------------------------------------------------------------------------
