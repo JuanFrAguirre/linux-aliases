@@ -1,5 +1,5 @@
 ##### GENERAL PURPOSE
-alias open='xdg-open .'
+#alias open='xdg-open .'
 alias opex='open;exit'
 alias reset='cd; source .zshrc; clear'
 alias sudoInstall='sudo dpkg -i'
@@ -84,6 +84,7 @@ vReactRouter="react-router-dom"
 
 ##### CODING
 alias vsc='code .; exit'
+alias crs='cursor .; exit'
 alias install.firebase='curl -sL https://firebase.tools | bash'
 alias prettierrc='prettierconfig'
 alias prettierrc.full='prettierconfig.full'
