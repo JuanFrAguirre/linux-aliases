@@ -60,6 +60,7 @@ alias foxitw='blend; cdInto Foxit.Aec.WebFrontend;'
 alias foxitm='blend; cdInto Foxit.Aec.Mobile;'
 alias hfc='projects; cdInto HFC;'
 alias rh='hfc; cdInto RH;'
+alias nutri='play; cdInto nutriApp-versions'
 alias zshrc='cd; nano .zshrc'
 
 # ------------------------------------------------------------------------------
