@@ -2,3 +2,4 @@ example.zsh
 plugins/
 themes/
 .gitignore
+.DS_Store

@@ -81,7 +81,7 @@ function commit(){ git commit -am $1; }
 function commit.add(){ git add $1;git commit -m $2; }
 function push(){ git push -u origin master; }
 function push.notmaster(){ git push -u origin $1; }
-function commit.alias(){ alias.folder;git add aliases.zsh functions.zsh;git commit -m $1;git push origin master; }
+function commit.alias(){ alias.folder;git add aliases.zsh functions.zsh .gitignore;git commit -m $1;git push origin master; }
 function git.email.local(){ git config user.email $1; }
 
 # ------------------------------------------------------------------------------
