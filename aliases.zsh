@@ -62,18 +62,26 @@ alias hfc='projects; cdInto HFC;'
 alias rh='hfc; cdInto RH;'
 alias nutri='play; cdInto nutriApp-versions'
 alias zshrc='cd; nano .zshrc'
+alias rhclient='nvm use 16; npm run start:client;'
+alias rhserver='nvm use 16; npm run start:server;'
+alias rhdevserver='nvm use 16; npm run start:dev-express-server;'
 
 # ------------------------------------------------------------------------------
 
 ##### GIT
 alias git.name='git config --global user.name'
+alias git.name.global='git config --global user.name'
+alias git.name.local='git config user.name'
 alias git.email='git config --global user.email'
+alias git.email.global='git config --global user.email'
+alias git.email.local='git config user.email'
+alias alias.folder='cd;cd .oh-my-zsh/custom;'
 function add(){ git add $@; }
 function commit(){ git commit -am $1; }
 function commit.add(){ git add $1;git commit -m $2; }
 function push(){ git push -u origin master; }
 function push.notmaster(){ git push -u origin $1; }
-function commit.alias(){ cd;cd .oh-my-zsh/custom;git add aliases.zsh functions.zsh;git commit -m $1;git push origin master; }
+function commit.alias(){ alias.folder;git add aliases.zsh functions.zsh;git commit -m $1;git push origin master; }
 function git.email.local(){ git config user.email $1; }
 
 # ------------------------------------------------------------------------------
